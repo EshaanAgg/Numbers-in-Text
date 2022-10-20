@@ -18,5 +18,14 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: npm ci
-      - name: Run main script
-        run: npm run update
+      - name: Run scipt and save output
+        run: |
+          DATA=$(npm run update)
+          echo "DATA=$DATA" >> $GITHUB_ENV
+      - name: Overwrite file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: ${{ env.home }}/test.txt
+          write-mode: overwrite
+          contents: |
+            ${{ env.DATA }}
