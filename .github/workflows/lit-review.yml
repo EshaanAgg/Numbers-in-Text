@@ -1,6 +1,4 @@
 name: 'Lit-Review'
-description: 'Automating Notion Page updation!'
-author: 'Eshaan Aggarwal'
 
 on:
   push:
