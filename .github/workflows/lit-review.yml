@@ -1,0 +1,24 @@
+name: 'Lit-Review'
+description: 'Automating Notion Page updation!'
+author: 'Eshaan Aggarwal'
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "* * 1 * * "
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run main script
+        run: npm run update
