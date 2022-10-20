@@ -46,8 +46,8 @@ const updateData = () => {
                   semanticScholarID: response.data.paperId,
                   citations: c,
                   references: r,
-                  citationCount: response.data.citationCount,
-                  influencialCitationCount: response.data.influencialCitationCount 
+                  citationCount: response.data.citationCount || 0,
+                  influencialCitationCount: response.data.influentialCitationCount || 0,
                 };
                 paperDetails["notionID"] = page.id;
                 
@@ -100,7 +100,7 @@ const updateData = () => {
                   page_id: rec.notionPageID,
                   properties: {
                     "Citation Count": { number: paperDetails.citationCount },
-                    "Influential Citation Count": { number: paperDetails.influentialCitationCount}
+                    "Influential Citation Count": { number: paperDetails.influencialCitationCount },
                   },
                 })
               
