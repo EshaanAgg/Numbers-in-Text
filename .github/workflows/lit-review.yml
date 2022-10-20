@@ -11,21 +11,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
+      - name: Checkout repository content
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with: 
           node-version: '14.x'
+      
       - name: Install dependencies
         run: npm ci
-      - name: Run scipt and save output
+      
+      - name: Run scipt and setup env var
         run: |
           DATA=$(npm run update)
+          echo $DATA
           echo "DATA=$DATA" >> $GITHUB_ENV
+      
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
           path: ${{ env.home }}/test.txt
           write-mode: overwrite
-          contents: |
-            ${{ env.DATA }}
+          contents: ${{ env.DATA }}
