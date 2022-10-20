@@ -23,6 +23,9 @@ jobs:
         run: npm ci
       
       - name: Fetch all records from Notion Database
+        env:
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: node getRecords.js
           
       - name: Commit changes to records.json
@@ -34,6 +37,8 @@ jobs:
           add: '*.json'
 
       - name: Update database from Semantic Scholar
+        env:
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
         run: node updateRecords.js
           
       - name: Commit changes to database.csv
