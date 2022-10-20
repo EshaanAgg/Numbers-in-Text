@@ -24,13 +24,9 @@ jobs:
       
       - name: Run scipt and setup env var
         run: |
-          DATA=$(npm run update)
+          DATA=$(node index.js)
           echo $DATA
           echo "DATA=$DATA" >> $GITHUB_ENV
       
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: ${{ env.home }}/test.txt
-          write-mode: overwrite
-          contents: ${{ env.DATA }}
+      - name: Use env var
+        run: echo ${{ env.DATA }}
