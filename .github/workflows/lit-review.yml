@@ -4,7 +4,7 @@ author: 'Eshaan Aggarwal'
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   schedule:
     - cron: "* * 1 * * "
 
