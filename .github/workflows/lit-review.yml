@@ -22,11 +22,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Run scipt and setup env var
-        run: |
-          DATA=$(node index.js)
-          echo $DATA
-          echo "DATA=$DATA" >> $GITHUB_ENV
-      
-      - name: Use env var
-        run: echo ${{ env.DATA }}
+      - name: Run script
+        run: node index.js
+          
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: EshaanAgg
+          author_email: eshaan.aggarwal.cse21@itbhu.ac.in
+          message: 'Update data'
+          add: '*.txt'
