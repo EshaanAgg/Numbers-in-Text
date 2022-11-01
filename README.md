@@ -2,7 +2,7 @@
 A dynamically updated research survey on representing numbers in Natural Language Processing. 
 Developed by [Eshaan Aggarwal](https://www.linkedin.com/in/eshaan-aggarwal/). Survey contributions by [Avijit Thawani](https://avi-jit.github.io/) and [Swaroop Mishra](https://swarooprm.github.io/). Thanks to the Semantic Scholar API for citation counts.
 
-You can preview the [Notion Database here](https://www.notion.so/4fdead36e192423594f079253f59234f).
+You can preview the [Notion Database here](https://numbers-in-text.notion.site/4fdead36e192423594f079253f59234f).
 
 ## About this repository
 This repository primarily hosts two files:
